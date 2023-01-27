@@ -6,7 +6,9 @@ import { Provider } from 'react-redux'
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <div className='container mx-auto w-full overflow-x-hidden'>
+        <Component {...pageProps} />
+      </div>
     </Provider>
   )
 }
