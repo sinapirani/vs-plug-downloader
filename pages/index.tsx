@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { SearchInput } from '../components/searchInput'
 import { Results } from '../components/results'
 import { MahsaAmini } from '../components/mahsaamini'
-import { MadeBy } from '../components/mademy'
+
 
 
 export default function Home() {
