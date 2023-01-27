@@ -14,9 +14,9 @@ export const PluginElement = ({ extention }: any) => {
                 extention
             }
         }
-        const response = await axios(axiosConfig)
-        const data = response.data
-        router.
+        let response = await axios(axiosConfig)
+        response = response.data
+        window.open(response.data)
     }
 
   useEffect(() => {
