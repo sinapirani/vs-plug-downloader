@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Rating } from "react-simple-star-rating";
-export const PluginElement = ({ extention }: any) => {
+const PluginElement = ({ extention }: any) => {
   const pluginRef = useRef<HTMLDivElement>(null);
   const [installs, setInstalls] = useState(0);
     const router = useRouter()
@@ -20,7 +20,6 @@ export const PluginElement = ({ extention }: any) => {
     }
 
   useEffect(() => {
-    console.log("EXX", extention);
     if (extention.statistics) {
       const installsCount = extention.statistics.find(
         (el: any) => (el.name = "install")
@@ -36,13 +35,13 @@ export const PluginElement = ({ extention }: any) => {
   // }, [pluginRef])
 
   if (!extention) {
-    return;
+    return <div></div>;
   }
 
   return (
     <div
       ref={pluginRef}
-      className={`w-2/6 h-[300px]  rounded-xl flex-shrink-0 flex flex-col justify-center items-center gap-x-4 border-solid border-black/40 border-2 bg-black/10 `}
+      className={`lg:w-2/6 w-5/6 h-[300px]  rounded-xl flex-shrink-0 flex flex-col justify-center items-center gap-x-4 border-solid border-black/40 border-2 bg-black/10 `}
     >
       <div className="flex justify-center items-center gap-x-4">
         <img
@@ -76,3 +75,6 @@ export const PluginElement = ({ extention }: any) => {
     </div>
   );
 };
+
+
+export default memo(PluginElement)

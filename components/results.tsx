@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import useSWR from "swr";
-import { PluginElement } from "./plugin";
+import PluginElement from "./plugin";
 
 export const Results = () => {
   const [page, setPage] = useState();
@@ -28,7 +28,7 @@ export const Results = () => {
   }
   
   if(!searchQuery){
-    return ;
+    return <div></div>;
   }
   
   if(data?.success != true  && !error){
@@ -39,7 +39,7 @@ export const Results = () => {
 
 
   return (
-    <div className="w-11/12 flex justify-center items-center flex-shrink-0 flex-wrap gap-y-4  gap-x-4 ">
+    <div className="w-11/12 flex flex-col lg:flex-row justify-center items-center flex-shrink-0 flex-wrap gap-y-4  gap-x-4  mb-12 ">
       {
         data.data.map((extention:any, index:any) => {
             return <PluginElement extention={extention} key={index}/>

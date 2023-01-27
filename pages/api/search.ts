@@ -44,7 +44,7 @@ handler.get((req:NextApiRequest, res:NextApiResponse) => {
   if(!page) page = "1"
   
   
-  requestOptions.body= `{"assetTypes":["Microsoft.VisualStudio.Services.Icons.Default","Microsoft.VisualStudio.Services.Icons.Branding","Microsoft.VisualStudio.Services.Icons.Small"],"filters":[{"criteria":[{"filterType":8,"value":"Microsoft.VisualStudio.Code"},{"filterType":10,"value":"${search}"},{"filterType":12,"value":"37888"}],"direction":2,"pageSize":54,"pageNumber":${page},"sortBy":0,"sortOrder":0,"pagingToken":null}],"flags":870}`
+  requestOptions.body= `{"assetTypes":["Microsoft.VisualStudio.Services.Icons.Default","Microsoft.VisualStudio.Services.Icons.Branding","Microsoft.VisualStudio.Services.Icons.Small"],"filters":[{"criteria":[{"filterType":8,"value":"Microsoft.VisualStudio.Code"},{"filterType":10,"value":"${search}"},{"filterType":12,"value":"37888"}],"direction":2,"pageSize":20,"pageNumber":${page},"sortBy":0,"sortOrder":0,"pagingToken":null}],"flags":870}`
 
   fetch(
     "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery",

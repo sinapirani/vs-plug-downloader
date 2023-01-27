@@ -8,20 +8,28 @@ import axios from "axios";
 export const SearchInput = () => {
 
   const dis = useDispatch() 
+  const [query, setQuery] = useState()
+
+  useEffect(() => {
+    const updateRedux = setTimeout(() => {
+      dis(changeSearch(query!))
+    }, 1500);
+    return () => clearTimeout(updateRedux)
+  },[query])
 
   return (
     <>
       <div className="relative mt-24">
         <div className=" absolute w-[400px] h-[400px] rounded-full bg-blue-900/30 blur-[100px] left-0 right-0 -z-10"></div>
-        <h1 className="lg:text-5xl font-black text-center">
+        <h1 className=" text-3xl lg:text-5xl font-black text-center">
           A Tool <br /> For download <br /> VScode extentions
         </h1>
       </div>
-      <div className="w-2/4 flex justify-center items-center">
+      <div className="lg:w-2/4 w-3/4 flex justify-center items-center">
         <input
-          className="px-4 text-black w-[50%] h-11 rounded-md outline-none "
+          className="px-4 text-black lg:w-[50%] w-full h-11 rounded-md outline-none "
           type="text"
-          onChange={(e) => dis(changeSearch(e.currentTarget.value))}
+          onChange={(e:any) => setQuery(e.currentTarget.value)}
         />
       </div>
     </>
