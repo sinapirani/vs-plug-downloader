@@ -1,4 +1,5 @@
-Download/Search Vscode extentions 
+#Vscode plugin downloader
+with this nextapp you can download extentions directly from marketplace
 
 
 ## Install & setup
